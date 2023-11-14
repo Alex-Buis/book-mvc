@@ -1,7 +1,6 @@
 <?php
 
 use M2i\Mvc\App;
-use M2i\Mvc\Controller\MoviesController;
 
 require '../vendor/autoload.php';
 
@@ -13,9 +12,9 @@ $app = new App ();
 $app->addRoutes([
     ['GET', '/' , 'HomeController@index'],
     ['GET', '/utilisateurs' , 'UserController@list'],
-    ['GET', '/utilisateurs/[i:id]' , 'UserController@show'],
+    ['GET', '/livres/[i:id]' , 'BookController@list'],
     ['GET|POST', '/utilisateurs/creer' ,'UserController@create'],
-    ['GET', '/films' , 'MoviesController@movies'],
+    ['GET', '/livres' , 'BookController@list'],
 
 ]);
 

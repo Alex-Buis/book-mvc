@@ -1,9 +1,9 @@
 <?php
-    require 'data.php';
-    $title = 'Nos livres'; // Le titre dans l'onglet du navigateur (Pour le SEO)
+// require 'data.php';
+// $title = 'Nos livres'; // Le titre dans l'onglet du navigateur (Pour le SEO)
 
-    require 'config/database.php';
-    $books = $db->query('SELECT * FROM books')->fetchAll();
+// require 'config/database.php';
+// $books = $db->query('SELECT * FROM books')->fetchAll();
 
 
     // Est-ce qu'une recherche a eu lieu ?
@@ -24,12 +24,12 @@
     $books = $newBooks;
 ?>
 
-<?php require 'partials/header.php'; ?>
+<?php require 'partials/header.html.php'; ?>
 
     <div class="max-w-5xl mx-auto px-3">
-        <?php if ($message = getMessage()) { ?>
-            <p><?= $message; ?></p>
-        <?php } ?>
+        <?php //if ($message = getMessage()) { ?>
+
+        <?php // } ?>  
         <div class="text-center mb-8">
             <a class="bg-gray-900 px-4 py-2 text-white inline-block rounded hover:bg-gray-700 duration-200" href="ajout.php">
                 Créer un livre
@@ -86,16 +86,18 @@
                             <div class="p-4">
                                 <h2 class="text-center"><?= $book['title']; ?></h2>
                                 <div class="flex justify-around items-center">
-                                    <p class="text-lg font-bold"><?= price($book['price'], $book['discount']); ?> €</p>
+                                    <p class="text-lg font-bold">
+                                        <?= $book['price']?><?= $book['discount']; ?> 
+                                        €</p>
                                     <?php if ($book['discount'] > 0) { ?>
-                                    <p class="text-xs font-bold">-<?= $book['discount']; ?>% <span class="line-through"><?= price($book['price']); ?> €</span></p>
+                                    <p class="text-xs font-bold">-<?= $book['discount']; ?>% <span class="line-through"><?= ($book['price']); ?> €</span></p>
                                     <?php } ?>
                                 </div>
                                 <p class="text-xs text-center text-gray-400">
                                     Par <strong><?= $book['author']; ?></strong> en <?= date('Y', strtotime($book['published_at'])); ?>
                                 </p>
                                 <p class="text-xs text-center text-gray-400">
-                                    ISBN: <strong><?= isbn($book['isbn']); ?></strong>
+                                    ISBN: <strong><?= ($book['isbn']); ?></strong>
                                 </p>
                             </div>
                         </a>
@@ -119,4 +121,4 @@
         </div>
     </div>
 
-<?php require 'partials/footer.php'; ?>
+<?php require 'partials/footer.html.php'; ?>

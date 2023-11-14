@@ -22,7 +22,7 @@
             <ul>
                 <li>
                     <a class="px-4" href="/">Accueil</a>
-                    <a class="px-4" href="/06-mvc/views/livres.php">Livres</a>
+                    <a class="px-4" href="/livres">Livres</a>
                     <a class="px-4" href="/cart">Panier (0)</a>
                     <a class="px-4" href="/login">Connexion</a>
                     <a class="px-4" href="/a-propos">A propos</a>
