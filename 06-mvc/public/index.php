@@ -12,9 +12,11 @@ $app = new App ();
 $app->addRoutes([
     ['GET', '/' , 'HomeController@index'],
     ['GET', '/utilisateurs' , 'UserController@list'],
-    ['GET', '/livres/[i:id]' , 'BookController@list'],
+    ['GET', '/livre/[i:id]' , 'BookController@show'],
     ['GET|POST', '/utilisateurs/creer' ,'UserController@create'],
     ['GET', '/livres' , 'BookController@list'],
+    ['GET','/livres/delete/[i:id]' ,'BookController@delete'],
+    ['GET','/livre/[i:id]' ,'BookController@show'],
 
 ]);
 

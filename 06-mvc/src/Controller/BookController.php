@@ -2,6 +2,7 @@
 
 namespace M2i\Mvc\Controller;
 
+use M2i\Mvc\Database;
 use M2i\Mvc\Model\Book;
 use M2i\Mvc\View;
 use M2i\Mvc\Model\User;
@@ -21,7 +22,7 @@ public function list()
         public function show($id) 
         {
 
-            if ($books = Book::find($id)) {
+            if (!$books = Book::find($id)) {
                 http_response_code(404);
                 return View::render('404');
             }
@@ -33,6 +34,13 @@ public function list()
             'author' => $books['author'],
             'publishedAt' => $books['published_at'],
             'image' => $books['image'],
+            'discount' => $books['discount'],
         ]);
+        }
+        public function delete(int $id)
+        {
+            $query = Database::get()->prepare('DELETE FROM books WHERE id = :id');
+            $query->execute(['id' => ($id)]);
+            header('location:/livres');
         }
 }
