@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book PHP</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+</head>
+<body class="font-[Ubuntu]">
+    <div class="max-w-5xl mx-auto px-3 mb-8">
+        <div class="flex justify-between items-center py-6 border-b">
+            <h2 class="text-3xl">
+                <a href="/">Book PHP</a>
+            </h2>
+            <form class="relative" action="">
+                <input type="text" name="search" class="px-3 pl-8 rounded-lg border-gray-300" value="">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-2">
+                    <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </div>
+            </form>
+            <ul>
+                <li>
+                    <a class="px-4" href="/">Accueil</a>
+                    <a class="px-4" href="/books">Livres</a>
+                    <a class="px-4" href="/cart">Panier (0)</a>
+                    <a class="px-4" href="/login">Connexion</a>
+                    <a class="px-4" href="/a-propos">A propos</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="max-w-5xl mx-auto px-3">
+        <div class="bg-red-300 p-5 rounded border border-red-800 text-red-800 my-4">
+            <p>Le titre est invalide.</p>
+            <p>Le prix est invalide.</p>
+            <p>L'ISBN est invalide.</p>
+            <p>L'auteur est invalide.</p>
+            <p>La date est invalide.</p>
+            <p>L'image est invalide.</p>
+        </div>
+        <form action="" method="post" class="w-1/2 mx-auto" enctype="multipart/form-data">
+            <div class="mb-4">
+                <label for="title" class="block">Titre *</label>
+                <input type="text" name="title" id="title" class="border-0 border-b focus:ring-0 w-full" value="">
+            </div>
+            <div class="mb-4">
+                <label for="price" class="block">Prix *</label>
+                <input type="text" name="price" id="price" class="border-0 border-b focus:ring-0 w-full" value="">
+            </div>
+            <div class="mb-4">
+                <label for="discount" class="block">Promotion</label>
+                <input type="text" name="discount" id="discount" class="border-0 border-b focus:ring-0 w-full" value="">
+            </div>
+            <div class="mb-4">
+                <label for="isbn" class="block">ISBN *</label>
+                <input type="text" name="isbn" id="isbn" class="border-0 border-b focus:ring-0 w-full" value="">
+            </div>
+            <div class="mb-4">
+                <label for="author" class="block">Auteur *</label>
+                <input type="text" name="author" id="author" class="border-0 border-b focus:ring-0 w-full" value="">
+            </div>
+            <div class="mb-4">
+                <label for="published_at" class="block">Publié le *</label>
+                <input type="date" name="published_at" id="published_at" class="border-0 border-b focus:ring-0 w-full" value="">
+            </div>
+            <div class="mb-4">
+                <label for="image" class="block mb-2">Image *</label>
+                <input type="file" name="image" id="image" class="cursor-pointer w-full
+                    file:rounded-full file:border-0 file:cursor-pointer
+                    file:bg-blue-50 hover:file:bg-blue-100
+                    file:font-semibold file:py-2 file:px-4 file:mr-4
+                ">
+            </div>
+
+            <div class="text-center">
+                <button class="bg-gray-900 px-4 py-2 text-white inline-block rounded hover:bg-gray-700 duration-200">Créer</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="max-w-5xl mx-auto py-8 mt-8">
+        <p class="text-center">Copyright &copy; 2023</p>
+    </div>
+</body>
+</html>
