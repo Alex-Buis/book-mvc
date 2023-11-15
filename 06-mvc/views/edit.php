@@ -16,11 +16,10 @@
     $discount = $_POST['discount'] ?? null;
     $isbn = $_POST['isbn'] ?? null;
     $author = $_POST['author'] ?? null;
-    $published_at = $_POST['published_at'] ?? null;
+    $publishedAt = $_POST['publishedAt'] ?? null;
     $errors =[];
 
-    // 2 - Verification des données (si le formulaire a été envoyé)
-    if(!empty($_POST)) { //formulaire non vide
+    if(!empty($_POST)) { 
         if(empty($btitle)) {
             $errors['title']= 'Le titre est obligatoire.';
         }
@@ -36,37 +35,33 @@
         if(empty($author)) {
             $errors['author']= 'Veuillez entrer le nom de l\'auteur.';
         }
-         //verif format date // $published_at = "2023-11-06"
-        $checked = explode('-', $published_at); 
-        // [2023,11,06]
-        //(int) permet de caster une chaine en entier
+
+        $checked = explode('-', $publishedAt); 
+
         if(!checkdate($checked[1] ?? 0, $checked[2] ?? 0, (int)$checked[0])) { 
-            $errors['published_at'] = 'La date est invalide.';
+            $errors['publishedAt'] = 'La date est invalide.';
         }
         
-        if(empty($errors)){ //verif si le tableau d'erreurs contient qqch, si il est vide on fait la requête.
-
-            //fonction update dans config
-            ('UPDATE books SET title = ?, price = ?, discount = ?, isbn = ?, author = ?, published_at = ?, image = ?)',
+        if(empty($errors)){ 
+            edit ('UPDATE books SET title = ?, price = ?, discount = ?, isbn = ?, author = ?, publishedAt = ?, image = ?)',
             [
-                $btitle, 
+                $title, 
                 $price, 
                 empty($discount) ? null : $discount, 
                 $isbn, 
                 $author,
-                $published_at,
-                'uploads/06.jpg',
+                $publishedAt,
+                'uploads/01.jpg',
             ]);
     
             //avant redirection, on ajoute un message dans la session (qu'on affiche plus tard).
-            addMessage('Le livre ' .$btitle. ' a bien été modifié.');
+            ('Le livre ' .$btitle. ' a bien été modifié.');
         
             //redirection vers une page
-            redirect('livres.php');
+            ('livres.php');
         }
     }
     require 'partials/header.php';
-?>
 ?>
 
     <div class="max-w-5xl mx-auto px-3">
@@ -102,8 +97,8 @@
                 <input type="text" name="author" id="author" class="border-0 border-b focus:ring-0 w-full" value="<?= $author;?>">
             </div>
             <div class="mb-4">
-                <label for="published_at" class="block">Publié le *</label>
-                <input type="date" name="published_at" id="published_at" class="border-0 border-b focus:ring-0 w-full" value="<?= $published_at;?>">
+                <label for="publishedAt" class="block">Publié le *</label>
+                <input type="date" name="publishedAt" id="publishedAt" class="border-0 border-b focus:ring-0 w-full" value="<?= $publishedAt;?>">
             </div>
             <div class="mb-4">
                 <label for="image" class="block mb-2">Image *</label>

@@ -31,7 +31,7 @@
 
         <?php // } ?>  
         <div class="text-center mb-8">
-            <a class="bg-gray-900 px-4 py-2 text-white inline-block rounded hover:bg-gray-700 duration-200" href="ajout.php">
+            <a class="bg-gray-900 px-4 py-2 text-white inline-block rounded hover:bg-gray-700 duration-200" href="/ajout">
                 Créer un livre
             </a>
         </div>
@@ -94,7 +94,7 @@
                                     <?php } ?>
                                 </div>
                                 <p class="text-xs text-center text-gray-400">
-                                    Par <strong><?= $book['author']; ?></strong> en <?= date('Y', strtotime($book['published_at'])); ?>
+                                    Par <strong><?= $book['author']; ?></strong> en <?= date('Y', strtotime($book['publishedAt'])); ?>
                                 </p>
                                 <p class="text-xs text-center text-gray-400">
                                     ISBN: <strong><?= ($book['isbn']); ?></strong>
@@ -103,7 +103,7 @@
                         </a>
 
                         <div class="text-center">
-                            <a class="bg-gray-900 px-4 py-2 text-white inline-block rounded hover:bg-gray-700 duration-200 mb-4" href="/book/1/edit">
+                            <a class="bg-gray-900 px-4 py-2 text-white inline-block rounded hover:bg-gray-700 duration-200 mb-4" href="/livres/<?= $book['id']; ?>/edit">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" />
                                 </svg>
